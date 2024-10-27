@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.nio.file.Path;
+import java.util.List;
 
 @SpringBootApplication
 public class ConversionApplication implements CommandLineRunner {
@@ -34,7 +35,7 @@ public class ConversionApplication implements CommandLineRunner {
 
 		try {
 			// 画像を変換
-			Path convertedFilePath = jpgFormatConversionService.jpgFormatConversion(INPUT_DIR, OUTPUT_DIR);
+			List<Path> convertedFilePath = jpgFormatConversionService.jpgFormatConversion(INPUT_DIR, OUTPUT_DIR);
 			System.out.println("変換が完了しました！保存先: " + convertedFilePath);
 		} catch (Exception e) {
 			System.err.println("変換中にエラーが発生しました: " + e.getMessage());
